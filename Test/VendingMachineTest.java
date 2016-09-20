@@ -143,4 +143,34 @@ public class VendingMachineTest {
 		assertEquals("SOLD OUT",mach.SelectProduct(ProductEnum.CANDY));
 	}
 
+	/************************************************
+	*
+	* Test Cases for VendingMachine > CanMakeChange
+	* 
+	**************************************************/
+	@Test
+	public void CanMakeChangeForZeroReturnTrue() {
+		assertEquals("true", mach.CanMakeChange(0.0).toString());
+	}
+	@Test
+	public void CanMakeChangeForTenCentsReturnsTrue()
+	{
+		assertEquals("true",mach.CanMakeChange(0.10).toString());
+	}
+	@Test
+	public void CanMakeChangeForNickelReturnsTrue()
+	{
+		assertEquals("true",mach.CanMakeChange(0.05).toString());
+	}
+	@Test
+	public void CanMakeChangeForQuarterReturnsTrue()
+	{
+		assertEquals("true",mach.CanMakeChange(0.25).toString());
+	}
+	@Test
+	public void CanMakeChangeForSixDollarsReturnsFalse()
+	{
+		assertEquals("false",mach.CanMakeChange(6.00).toString());
+	}
+
 }
