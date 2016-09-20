@@ -232,8 +232,30 @@ public class VendingMachineTest {
 		mach.SelectProduct(ProductEnum.COLA);
 		assertEquals("0.0",mach.ReturnCoins().toString());
 	}
-}
 
+	/************************************************
+	*
+	* Test Cases for VendingMachine > RemainingBalance
+	* 
+	**************************************************/
+	@Test
+	public void ReturnAllCoinsEnteredWithoutBuyingAProduct()
+	{
+		mach.EnterCoin(0.25);
+		mach.EnterCoin(0.25);
+		mach.EnterCoin(0.25);
+		mach.EnterCoin(0.25);
+		assertEquals("1.00",mach.RemainingBalance().toString());
+	}
 
-
+	@Test
+	public void EnterOneDollarBuyChipsRemainingBalanceIsTwentyFive()
+	{
+		mach.EnterCoin(0.25);
+		mach.EnterCoin(0.25);
+		mach.EnterCoin(0.25);
+		mach.EnterCoin(0.25);
+		mach.SelectProduct(ProductEnum.CHIPS);
+		assertEquals("0.5",mach.RemainingBalance().toString());
+	}
 }
