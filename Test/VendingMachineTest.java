@@ -1,11 +1,12 @@
-import org.junit.Test;
+package Test;
 
 import static org.junit.Assert.*;
+import org.junit.Test;
 
 import org.junit.Before;
 
-import Code.ProductEnum;
-import Code.VendingMachine;
+import Src.ProductEnum;
+import Src.VendingMachine;
 
 public class VendingMachineTest {
 
@@ -244,7 +245,7 @@ public class VendingMachineTest {
 		mach.EnterCoin(0.25);
 		mach.EnterCoin(0.25);
 		mach.EnterCoin(0.25);
-		assertEquals("1.00",mach.RemainingBalance().toString());
+		assertEquals("1.0",mach.RemainingBalance().toString());
 	}
 
 	@Test
