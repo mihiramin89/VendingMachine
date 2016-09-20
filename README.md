@@ -70,3 +70,18 @@ _So that I can determine if I can buy something with the money I have before ins
 
 When the machine is not able to make change with the money in the machine for any of the items that it sells, it will
 display EXACT CHANGE ONLY instead of INSERT COIN.
+
+Testing Instructions
+---------------------
+
+There are a few options you can do to test this code. Both will involve having java installed on your computer. 
+
+Options: 
+
+1. Via the command terminal by running the following commands (note: must be inside the Src folder when running them)
+- javac *.java 
+- java VendingMachineUI
+
+2. Use an IDE to run the project.
+
+
