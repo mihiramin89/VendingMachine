@@ -167,4 +167,15 @@ public class VendingMachine {
 				}
 				break;
 		}
+	}
+
+	//gives the change back to the user.
+	//returns the amount not spent.
+	public Double ReturnCoins()
+	{
+		Double amount = change;
+		change = 0.0;
+		enteredAmount = 0.0;
+		return amount;
+	}
 }
