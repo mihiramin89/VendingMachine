@@ -1,4 +1,4 @@
-package Code;
+package Src;
 
 public enum CurrencyEnum {
 	PENNY,NICKEL,DIME,QUARTER;
