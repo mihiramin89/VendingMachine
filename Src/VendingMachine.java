@@ -167,6 +167,8 @@ public class VendingMachine {
 				}
 				break;
 		}
+		change = enteredAmount;
+		return output.toString();
 	}
 
 	//gives the change back to the user.
