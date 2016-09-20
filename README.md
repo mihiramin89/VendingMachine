@@ -79,8 +79,8 @@ There are a few options you can do to test this code. Both will involve having j
 Options: 
 
 1. Via the command terminal by running the following commands (note: must be inside the Src folder when running them)
-- javac *.java 
-- java VendingMachineUI
+>- javac *.java 
+>- java VendingMachineUI
 
 2. Use an IDE to run the project.
 
