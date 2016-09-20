@@ -57,4 +57,114 @@ public class VendingMachine {
 		VenderChange.set(0,(VenderChange.get(0) + enteredAmount));
 		return enteredAmount;
 	}
+
+	//This function returns a true if the machine has enough change available to give the user.
+	// if it does not have enough change saved up it will return false.
+	public Boolean CanMakeChange(Double amount) 
+	{
+		boolean havechangeavailable = false;
+		//determine number of quarters,dimes,nickels
+		int changeneeded = (int) (amount*100);//make it easier to determine the change if dealing with integers.
+		int quarternumber = changeneeded/25;
+		changeneeded = changeneeded - (quarternumber *25);
+		int dimenumber = changeneeded/10;
+		changeneeded = changeneeded - (dimenumber * 10);
+		int nickelnumber = changeneeded/5;
+		changeneeded = changeneeded -(nickelnumber *5);
+		if(changeneeded == 0 && VenderChange.get(1) >= quarternumber && VenderChange.get(2) >= dimenumber && VenderChange.get(3) >= nickelnumber)
+		{
+			havechangeavailable = true;
+		}
+
+		return havechangeavailable;
+		//set change to that amount.
+	}
+
+	// this function returns a string that either says Thank you, sold out, or the price of the item.
+	public String SelectProduct(ProductEnum prod)
+	{
+		StringBuilder output = new StringBuilder();
+		
+		switch (prod)
+		{
+			case CANDY : //candy 0.65
+				if(enteredAmount >= 0.65 && candyInventory > 0)
+				{
+					if(enteredAmount > 0.65)
+					{
+						if(CanMakeChange(enteredAmount - 0.65))
+						{
+							candyInventory--;
+							enteredAmount = enteredAmount - 0.65;
+							output.append("THANK YOU");
+						}
+					}else
+					{
+						candyInventory--;
+						enteredAmount = enteredAmount - 0.65;
+						output.append("THANK YOU");
+					}
+					
+				}else if(candyInventory == 0 )
+				{
+					output.append("SOLD OUT");
+				}else
+				{
+					output.append("Price: 0.65");
+				}
+				break;
+			case CHIPS : // chips 0.50
+				if(enteredAmount >= 0.50 && chipInventory > 0)
+				{
+					if(enteredAmount > 0.50)
+					{
+						if(CanMakeChange(enteredAmount - 0.50))
+						{
+							chipInventory--;
+							enteredAmount = enteredAmount - 0.50;
+							output.append("THANK YOU");
+						}
+					}else
+					{
+						chipInventory--;
+						enteredAmount = enteredAmount - 0.50;
+						output.append("THANK YOU");
+					}
+					
+				}else if(chipInventory == 0 )
+				{
+					output.append("SOLD OUT");
+				}else
+				{
+					output.append("Price: 0.50");
+				}
+				
+				break;
+			case COLA : //cola 1.00
+				if(enteredAmount >= 1.00 && colaInventory > 0)
+				{
+					if(enteredAmount > 1.00)
+					{
+						if(CanMakeChange(enteredAmount - 1.00))
+						{
+							colaInventory--;
+							enteredAmount = enteredAmount - 1.00;
+							output.append("THANK YOU");
+						}
+					}else
+					{
+						colaInventory--;
+						enteredAmount = enteredAmount - 1.00;
+						output.append("THANK YOU");
+					}
+					
+				}else if(colaInventory == 0 )
+				{
+					output.append("SOLD OUT");
+				}else
+				{
+					output.append("Price: 1.00");
+				}
+				break;
+		}
 }
