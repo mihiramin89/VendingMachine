@@ -180,4 +180,12 @@ public class VendingMachine {
 		enteredAmount = 0.0;
 		return amount;
 	}
+
+	//this function returns the remaining balance without updating the vending machines state.
+	// use case: in case the user would like to see the remaining amount left after purchasing an item.
+	// user will not have to re-enter the coins to spend them.
+	public Double RemainingBalance()
+	{
+		return enteredAmount;
+	}
 }
