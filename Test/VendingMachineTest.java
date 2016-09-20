@@ -173,4 +173,67 @@ public class VendingMachineTest {
 		assertEquals("false",mach.CanMakeChange(6.00).toString());
 	}
 
+	/************************************************
+	*
+	* Test Cases for VendingMachine > ReturnCoins
+	* 
+	**************************************************/
+	@Test
+	public void ReturnCoinsWhenOnlyEnteringAPennyReturnsAPenny()
+	{
+		mach.EnterCoin(0.01);
+		assertEquals("0.01",mach.ReturnCoins().toString());
+	}
+	@Test
+	public void ReturnCoinsWhenOnlyEnteringANickelReturnsANickel()
+	{
+		mach.EnterCoin(0.05);
+		assertEquals("0.05",mach.ReturnCoins().toString());
+	}
+	@Test
+	public void ReturnCoinsWhenOnlyEnteringADimeReturnsADime()
+	{
+		mach.EnterCoin(0.10);
+		assertEquals("0.1",mach.ReturnCoins().toString());
+	}
+	@Test
+	public void ReturnCoinsWhenOnlyEnteringAQuarterReturnsAQuarter()
+	{
+		mach.EnterCoin(0.25);
+		assertEquals("0.25",mach.ReturnCoins().toString());
+	}
+	@Test
+	public void ReturnCoinsWhenEnteringADollarAndBuyingAChipReturnsFiftyCents()
+	{
+		mach.EnterCoin(0.25);
+		mach.EnterCoin(0.25);
+		mach.EnterCoin(0.25);
+		mach.EnterCoin(0.25);
+		mach.SelectProduct(ProductEnum.CHIPS);
+		assertEquals("0.5",mach.ReturnCoins().toString());
+	}
+	@Test
+	public void ReturnCoinsWhenEnteringADollarAndBuyingACandyReturnsThirtyFiveCents()
+	{
+		mach.EnterCoin(0.25);
+		mach.EnterCoin(0.25);
+		mach.EnterCoin(0.25);
+		mach.EnterCoin(0.25);
+		mach.SelectProduct(ProductEnum.CANDY);
+		assertEquals("0.35",mach.ReturnCoins().toString());
+	}
+	@Test
+	public void ReturnCoinsWhenEnteringADollarAndBuyingAColaReturnsZeroCents()
+	{
+		mach.EnterCoin(0.25);
+		mach.EnterCoin(0.25);
+		mach.EnterCoin(0.25);
+		mach.EnterCoin(0.25);
+		mach.SelectProduct(ProductEnum.COLA);
+		assertEquals("0.0",mach.ReturnCoins().toString());
+	}
+}
+
+
+
 }
